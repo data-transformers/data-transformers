@@ -1,3 +1,8 @@
+{{
+    config(
+        materialized='table'
+    )
+}}
 select
     _row as id,  
     game AS name, 
@@ -9,3 +14,5 @@ select
     rest_of_world,
     global 
 from {{ source("video_game_sales", "PS_4_GAME_SALES")}}
+
+
