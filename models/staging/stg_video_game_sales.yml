@@ -1,0 +1,25 @@
+models:
+  - name: stg_ps_4_game_sales
+    columns:
+      - name: game
+        description: primary key for ps4
+      - name: year
+      - name: genre
+      - name: publisher
+      - name: North_America 
+      - name: Europe
+      - name: Japan 
+      - name: Rest_of_World
+      - name: Global
+  - name: xbox_game_sales
+    columns:
+      - name: game
+        description: primary key for ps4
+      - name: year
+      - name: genre
+      - name: publisher
+      - name: North_America 
+      - name: Europe
+      - name: Japan 
+      - name: Rest_of_World
+      - name: Global  

@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: video_game_sales
+    database: PC_FIVETRAN_DB
+    schema: VIDEO_GAME_SALES
+    tables: 
+      - name: PS_4_GAME_SALES
+      - name: XBOX_GAME_SALES
