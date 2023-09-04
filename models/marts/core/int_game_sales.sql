@@ -10,8 +10,8 @@ xbox_game_sales as (
 
 int_video_game_sales as (
     SELECT 
-     id,  
-     name, 
+    id,  
+    name, 
     publisher, 
     genre, 
     year, 
@@ -23,7 +23,7 @@ int_video_game_sales as (
     FROM ps_4_game_sales
     UNION
     SELECT 
-     id,  
+    id,  
     name, 
     publisher, 
     genre, 

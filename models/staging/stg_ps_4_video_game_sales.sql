@@ -1,4 +1,3 @@
-
 select
     _row as id,  
     game AS name, 
@@ -8,7 +7,7 @@ select
     north_america, 
     europe, japan, 
     rest_of_world,
-    global,
+    global
 from {{ source("video_game_sales", "PS_4_GAME_SALES")}}
 
 
