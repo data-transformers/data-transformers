@@ -11,12 +11,11 @@ xbox_game_sales as (
 int_video_game_sales as (
     SELECT 
     id,  
-<<<<<<< HEAD
-=======
     name, 
     publisher, 
     genre, 
-    year, 
+    year,
+    console, 
     north_america, 
     europe, japan, 
     rest_of_world,
@@ -26,7 +25,6 @@ int_video_game_sales as (
     UNION
     SELECT 
     id,  
->>>>>>> b26712e581548c9c359889d5dbcf2297b554d375
     name, 
     publisher, 
     genre, 
@@ -35,20 +33,8 @@ int_video_game_sales as (
     north_america, 
     europe, japan, 
     rest_of_world,
-    global
-    FROM ps_4_game_sales
-    UNION
-    SELECT 
-    id,  
-    name, 
-    publisher, 
-    genre, 
-    year,
-    console, 
-    north_america, 
-    europe, japan, 
-    rest_of_world,
-    global
+    global,
+    'xbox' as console
     FROM xbox_game_sales
 )
 
