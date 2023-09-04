@@ -14,7 +14,8 @@ int_video_game_sales as (
     name, 
     publisher, 
     genre, 
-    year, 
+    year,
+    console, 
     north_america, 
     europe, japan, 
     rest_of_world,
@@ -27,12 +28,13 @@ int_video_game_sales as (
     name, 
     publisher, 
     genre, 
-    year, 
+    year,
+    console, 
     north_america, 
     europe, japan, 
     rest_of_world,
     global,
-    'xbox' as console 
+    'xbox' as console
     FROM xbox_game_sales
 )
 

@@ -7,5 +7,6 @@ select
     north_america, 
     europe, japan, 
     rest_of_world,
-    global 
+    global,
+    'xbox' as console 
 from {{ source("video_game_sales", "XBOX_GAME_SALES")}}
