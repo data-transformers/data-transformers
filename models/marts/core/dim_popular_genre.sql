@@ -20,5 +20,5 @@ dim_popular_genre as (
     GROUP BY genre
 )
 
-SELECT  *
+SELECT *
 FROM dim_popular_genre
