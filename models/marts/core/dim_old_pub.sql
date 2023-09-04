@@ -9,7 +9,7 @@ with int_game_sales as (
     FROM {{ ref("int_game_sales") }}
 ),
 
-dim_old_pub as (
+old_pub as (
     SELECT 
     publisher,
     year,
@@ -19,9 +19,15 @@ dim_old_pub as (
     SUM(rest_of_world) as row_sales
     FROM int_game_sales
     GROUP BY publisher, year
-    ORDER BY year ASC
-    LIMIT 3
-
+    ORDER BY year
+    limit 5
+),
+dim_old_pub as (
+    SELECT 
+    publisher,
+    year,
+    na_sales + eu_sales + jap_sales + row_sales as total_sales
+    FROM old_pub
 )
 
 SELECT  *
