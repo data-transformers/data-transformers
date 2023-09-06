@@ -55,24 +55,6 @@ union_tables as (
     FROM region_sum
 )
 
--- genre_sales_rank as (
---     SELECT
---     genre,
---     publisher,
---     na_sales + eu_sales + jap_sales + row_sales as total_sales,
---     RANK() OVER (PARTITION BY GENRE ORDER BY NA_SALES + EU_SALES + JAP_SALES + ROW_SALES DESC) AS sales_rank
---     FROM region_sum
--- )
-
--- dim_successful_pub as (
--- SELECT
---     genre,
---     publisher,
---     total_sales
--- FROM genre_sales_rank
--- WHERE sales_rank = 1
--- )
-
 SELECT
     region,
     name
