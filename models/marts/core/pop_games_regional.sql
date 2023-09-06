@@ -17,6 +17,42 @@ region_sum as (
     SUM(rest_of_world) as row_sales
     FROM int_game_sales
     GROUP BY name
+),
+
+union_tables as (
+     SELECT
+        'North America' AS Region,
+        name,
+        na_sales AS Sales,
+        ROW_NUMBER() OVER (PARTITION BY 'North America' ORDER BY NA_SALES DESC) AS rn
+    FROM region_sum
+
+    UNION ALL
+
+    SELECT
+        'Europe' AS Region,
+        name,
+        eu_sales AS Sales,
+        ROW_NUMBER() OVER (PARTITION BY 'Europe' ORDER BY EU_SALES DESC) AS rn
+    FROM region_sum
+
+    UNION ALL
+
+    SELECT
+        'Japan' AS Region,
+        name,
+        jap_sales AS Sales,
+        ROW_NUMBER() OVER (PARTITION BY 'Japan' ORDER BY JAP_SALES DESC) AS rn
+    FROM region_sum
+
+    UNION ALL
+
+    SELECT
+        'ROW' AS Region,
+        name,
+        row_sales AS Sales,
+        ROW_NUMBER() OVER (PARTITION BY 'Rest of the World' ORDER BY ROW_SALES DESC) AS rn
+    FROM region_sum
 )
 
 -- genre_sales_rank as (
@@ -37,5 +73,8 @@ region_sum as (
 -- WHERE sales_rank = 1
 -- )
 
-SELECT *
-FROM region_sum
+SELECT
+    region,
+    name
+FROM union_tables
+WHERE rn <= 3
