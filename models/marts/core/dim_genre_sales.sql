@@ -1,7 +1,6 @@
 
 {{ config(
-    materialized="table",
-    schema="dbt_bullah"
+    materialized="table"
 ) }}
 
 with int_game_sales as ( 
