@@ -27,16 +27,21 @@ total as (
     console
     FROM region_sum
 ),
-
 cross_platform_games as (
-    SELECT
-        Name,
-        SUM(CASE WHEN Console = 'PS4' THEN total_sales ELSE 0 END) AS ps4_Sales,
-        SUM(CASE WHEN Console = 'Xbox' THEN total_sales ELSE 0 END) AS xbox_Sales
+    SELECT name, console
     FROM total
-    WHERE Console IN ('PS4', 'Xbox')
-    GROUP BY Name
-    ORDER BY Name
+    GROUP BY name, console
+    HAVING COUNT(*) > 1
 )
+-- cross_platform_games as (
+--     SELECT
+--         Name,
+--         SUM(CASE WHEN Console = 'PS4' THEN total_sales ELSE 0 END) AS ps4_Sales,
+--         SUM(CASE WHEN Console = 'Xbox' THEN total_sales ELSE 0 END) AS xbox_Sales
+--     FROM total
+--     WHERE Console IN ('PS4', 'Xbox')
+--     GROUP BY Name
+--     ORDER BY Name
+-- )
 
 SELECT * FROM cross_platform_games
