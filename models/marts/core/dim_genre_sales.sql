@@ -15,7 +15,6 @@ dim_genre_sales as (
     FROM int_game_sales
     GROUP BY genre
     ORDER BY sales DESC
-    LIMIT 3
 )
 
 SELECT * FROM dim_genre_sales
