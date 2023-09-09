@@ -1,8 +1,8 @@
-
-{{ config(
-    materialized="table",
-    schema="dbt_muddin"
-) }}
+{{
+    config(
+        materialized='table'
+    )
+}}
 
 with int_game_sales as ( 
     SELECT genre, north_america, europe, japan, rest_of_world 
