@@ -30,3 +30,4 @@ dim_trend_years as (
 
 SELECT  *
 FROM dim_trend_years
+WHERE YEAR != 'N/A'
