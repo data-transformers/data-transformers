@@ -37,5 +37,5 @@ FROM genre_sales_rank
 WHERE sales_rank = 1
 )
 
-SELECT genre, publisher
+SELECT genre, publisher, total_sales
 FROM dim_successful_pub
